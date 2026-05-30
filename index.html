@@ -14,10 +14,18 @@
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
     
+    <div class="lang-selector">
+        <select id="langSwitch" onchange="changeLanguage(this.value)">
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ko">🇰🇷 한국어</option>
+        </select>
+    </div>
+
     <div class="app-wrapper">
         <header class="cyber-header">
             <h1 class="glitch-text" data-text="TOPHEROES">TOPHEROES</h1>
-            <h2 class="sub-heading">AUTO REDEEM <span>SYSTEM</span></h2>
+            <h2 class="sub-heading" id="subtitle">AUTO REDEEM <span>SYSTEM</span></h2>
         </header>
 
         <div class="main-dashboard">
@@ -25,7 +33,7 @@
                 <div class="input-card">
                     <div class="card-header">
                         <span class="icon">🆔</span>
-                        <h3>PLAYER UIDS</h3>
+                        <h3 id="uids_label">PLAYER UIDS</h3>
                     </div>
                     <textarea id="uids" class="cyber-input" placeholder="Nhập mỗi UID một dòng...&#10;Ví dụ:&#10;996388907184"></textarea>
                 </div>
@@ -33,7 +41,7 @@
                 <div class="input-card">
                     <div class="card-header">
                         <span class="icon">🎁</span>
-                        <h3>GIFT CODES</h3>
+                        <h3 id="codes_label">GIFT CODES</h3>
                     </div>
                     <textarea id="codes" class="cyber-input" placeholder="Nhập mỗi Code một dòng...&#10;Ví dụ:&#10;NEWYEAR2026"></textarea>
                 </div>
@@ -41,17 +49,17 @@
 
             <div class="action-section">
                 <button id="startBtn" class="cyber-btn" onclick="startRedeem()">
-                    <span class="btn-text">INITIALIZE REDEEM</span>
+                    <span class="btn-text" id="btn_start">INITIALIZE REDEEM</span>
                 </button>
             </div>
 
             <div class="terminal-section">
                 <div class="terminal-header">
-                    <div class="terminal-title">SYSTEM.LOGS</div>
-                    <button class="clear-btn" onclick="clearLogs()">[ CLEAR ]</button>
+                    <div class="terminal-title" id="sys_logs">SYSTEM.LOGS</div>
+                    <button class="clear-btn" id="clear_btn" onclick="clearLogs()">[ CLEAR ]</button>
                 </div>
                 <div id="logBox" class="terminal-body">
-                    <div class="log-entry info"><span class="time">[SYS]</span> Terminal Ready. Chờ lệnh từ người dùng...</div>
+                    <div class="log-entry info"><span class="time">[SYS]</span> <span id="sys_ready">Terminal Ready. Chờ lệnh từ người dùng...</span></div>
                 </div>
             </div>
         </div>

@@ -278,6 +278,36 @@ body {
     to { transform: translateX(0); opacity: 1; }
 }
 
+/* Language Selector */
+.lang-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+.lang-selector select {
+    background: rgba(0, 243, 255, 0.05);
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+}
+.lang-selector select:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+.lang-selector select option {
+    background: var(--bg-color);
+    color: var(--primary);
+}
+
 @media (max-width: 768px) {
     .input-section { grid-template-columns: 1fr; }
     .glitch-text { font-size: 2.5rem; }
