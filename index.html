@@ -3,44 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopHeroes Auto Redeem</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>TopHeroes Auto Redeem Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-animation"></div>
+    <div class="cyber-grid"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
     
-    <div class="container glass-panel">
-        <header>
-            <h1>TopHeroes <span>Auto Redeem</span></h1>
-            <p>Công cụ tự động đăng nhập và nhập Giftcode</p>
+    <div class="app-wrapper">
+        <header class="cyber-header">
+            <h1 class="glitch-text" data-text="TOPHEROES">TOPHEROES</h1>
+            <h2 class="sub-heading">AUTO REDEEM <span>SYSTEM</span></h2>
         </header>
 
-        <div class="main-content">
-            <div class="input-group">
-                <div class="input-col">
-                    <label for="uids">Danh sách UID</label>
-                    <textarea id="uids" placeholder="Nhập mỗi UID một dòng...&#10;Ví dụ:&#10;996388907184&#10;123456789012"></textarea>
+        <div class="main-dashboard">
+            <div class="input-section">
+                <div class="input-card">
+                    <div class="card-header">
+                        <span class="icon">🆔</span>
+                        <h3>PLAYER UIDS</h3>
+                    </div>
+                    <textarea id="uids" class="cyber-input" placeholder="Nhập mỗi UID một dòng...&#10;Ví dụ:&#10;996388907184"></textarea>
                 </div>
                 
-                <div class="input-col">
-                    <label for="codes">Danh sách Giftcode</label>
-                    <textarea id="codes" placeholder="Nhập mỗi Code một dòng...&#10;Ví dụ:&#10;NEWYEAR2026&#10;TOPHEROESVIP"></textarea>
+                <div class="input-card">
+                    <div class="card-header">
+                        <span class="icon">🎁</span>
+                        <h3>GIFT CODES</h3>
+                    </div>
+                    <textarea id="codes" class="cyber-input" placeholder="Nhập mỗi Code một dòng...&#10;Ví dụ:&#10;NEWYEAR2026"></textarea>
                 </div>
             </div>
 
-            <button id="startBtn" onclick="startRedeem()">
-                <span class="btn-text">Bắt Đầu Auto Redeem</span>
-                <span class="btn-icon">▶</span>
-            </button>
-        </div>
-
-        <div class="log-container">
-            <div class="log-header">
-                <h3>Trạng thái & Nhật ký</h3>
-                <button class="clear-log" onclick="clearLogs()">Xóa</button>
+            <div class="action-section">
+                <button id="startBtn" class="cyber-btn" onclick="startRedeem()">
+                    <span class="btn-text">INITIALIZE REDEEM</span>
+                </button>
             </div>
-            <div id="logBox" class="log-box"></div>
+
+            <div class="terminal-section">
+                <div class="terminal-header">
+                    <div class="terminal-title">SYSTEM.LOGS</div>
+                    <button class="clear-btn" onclick="clearLogs()">[ CLEAR ]</button>
+                </div>
+                <div id="logBox" class="terminal-body">
+                    <div class="log-entry info"><span class="time">[SYS]</span> Terminal Ready. Chờ lệnh từ người dùng...</div>
+                </div>
+            </div>
         </div>
     </div>
 
