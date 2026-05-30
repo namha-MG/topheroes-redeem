@@ -65,8 +65,7 @@ async function startRedeem() {
 
     const startBtn = document.getElementById('startBtn');
     startBtn.disabled = true;
-    startBtn.querySelector('.btn-text').innerText = 'Đang xử lý...';
-    startBtn.querySelector('.btn-icon').style.display = 'none';
+    startBtn.querySelector('.btn-text').innerText = 'PROCESSING...';
 
     logMessage(`Bắt đầu tiến trình. Tổng cộng: ${uids.length} UIDs, ${codes.length} Codes.`, 'info');
 
@@ -102,8 +101,7 @@ async function startRedeem() {
 
     logMessage(`\n=== Hoàn thành toàn bộ tiến trình! ===`, 'success');
     startBtn.disabled = false;
-    startBtn.querySelector('.btn-text').innerText = 'Bắt Đầu Auto Redeem';
-    startBtn.querySelector('.btn-icon').style.display = 'inline';
+    startBtn.querySelector('.btn-text').innerText = 'INITIALIZE REDEEM';
 }
 
 async function getPlayerInfo(uid) {
