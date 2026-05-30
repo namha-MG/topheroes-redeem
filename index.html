@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopHeroes Auto Redeem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container glass-panel">
+        <header>
+            <h1>TopHeroes <span>Auto Redeem</span></h1>
+            <p>Công cụ tự động đăng nhập và nhập Giftcode</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-group">
+                <div class="input-col">
+                    <label for="uids">Danh sách UID</label>
+                    <textarea id="uids" placeholder="Nhập mỗi UID một dòng...&#10;Ví dụ:&#10;996388907184&#10;123456789012"></textarea>
+                </div>
+                
+                <div class="input-col">
+                    <label for="codes">Danh sách Giftcode</label>
+                    <textarea id="codes" placeholder="Nhập mỗi Code một dòng...&#10;Ví dụ:&#10;NEWYEAR2026&#10;TOPHEROESVIP"></textarea>
+                </div>
+            </div>
+
+            <button id="startBtn" onclick="startRedeem()">
+                <span class="btn-text">Bắt Đầu Auto Redeem</span>
+                <span class="btn-icon">▶</span>
+            </button>
+        </div>
+
+        <div class="log-container">
+            <div class="log-header">
+                <h3>Trạng thái & Nhật ký</h3>
+                <button class="clear-log" onclick="clearLogs()">Xóa</button>
+            </div>
+            <div id="logBox" class="log-box"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
