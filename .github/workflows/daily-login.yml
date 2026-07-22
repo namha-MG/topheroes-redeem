@@ -1,0 +1,24 @@
+name: Daily TopHeroes Rewards
+
+on:
+  schedule:
+    # Chạy vào 00:00 UTC mỗi ngày (Tương đương 07:00 sáng giờ Việt Nam)
+    - cron: '0 0 * * *'
+  # Cho phép bạn có thể bấm nút "Run workflow" thủ công trên giao diện GitHub Actions
+  workflow_dispatch:
+
+jobs:
+  run-daily-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Node 18 hỗ trợ sẵn fetch API mà không cần cài thêm thư viện
+
+      - name: Run Daily Sign-In Job
+        run: node daily_job.js
