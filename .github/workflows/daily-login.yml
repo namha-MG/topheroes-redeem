@@ -2,8 +2,8 @@ name: Daily TopHeroes Rewards
 
 on:
   schedule:
-    # Chạy vào 00:00 UTC mỗi ngày (Tương đương 07:00 sáng giờ Việt Nam)
-    - cron: '0 0 * * *'
+    # Chạy vào 02:30 UTC mỗi ngày (Tương đương 09:30 sáng giờ Việt Nam)
+    - cron: '30 2 * * *'
   # Cho phép bạn có thể bấm nút "Run workflow" thủ công trên giao diện GitHub Actions
   workflow_dispatch:
 
