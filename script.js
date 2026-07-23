@@ -209,7 +209,7 @@ async function startRedeem() {
 
 async function getPlayerInfo(uid) {
     try {
-        const url = `https://topheroes.store.kopglobal.com/api/v2/store/player-info?project_id=1028637&player_id=${uid}&site_id=1028526`;
+        const url = `https://topheroes.pay-store.rivergame.net/api/v2/store/player-info?project_id=1028637&player_id=${uid}&site_id=1028526`;
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -232,7 +232,7 @@ async function getPlayerInfo(uid) {
 
 async function loginUser(uid) {
     try {
-        const response = await fetch('https://topheroes.store.kopglobal.com/api/v2/store/login/player', {
+        const response = await fetch('https://topheroes.pay-store.rivergame.net/api/v2/store/login/player', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -267,7 +267,7 @@ async function loginUser(uid) {
 async function redeemCode(uid, code, token) {
     try {
         logMessage(getTranslation('code_trying', { c: code }), 'info');
-        const response = await fetch('https://topheroes.store.kopglobal.com/api/v2/store/redemption/redeem', {
+        const response = await fetch('https://topheroes.pay-store.rivergame.net/api/v2/store/redemption/redeem', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

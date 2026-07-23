@@ -18,7 +18,7 @@ function getUids() {
 
 async function loginUser(uid) {
     try {
-        const response = await fetch('https://topheroes.store.kopglobal.com/api/v2/store/login/player', {
+        const response = await fetch('https://topheroes.pay-store.rivergame.net/api/v2/store/login/player', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -58,7 +58,7 @@ async function claimDailyRewards(uid, token) {
     for (const actId of ACTIVITY_IDS) {
         try {
             log(`Đang kiểm tra sự kiện điểm danh (ID: ${actId})...`);
-            const listUrl = `https://topheroes.store.kopglobal.com/api/v2/store/sale/biz/sign-in-list?page_size=365&site_id=1028526&page_no=1&activity_id=${actId}`;
+            const listUrl = `https://topheroes.pay-store.rivergame.net/api/v2/store/sale/biz/sign-in-list?page_size=365&site_id=1028526&page_no=1&activity_id=${actId}`;
             const listResponse = await fetch(listUrl, {
                 method: 'GET',
                 headers: {
@@ -76,7 +76,7 @@ async function claimDailyRewards(uid, token) {
                 const availableDay = list.find(day => day.is_available_sign_in);
                 
                 if (availableDay) {
-                    const receiveUrl = 'https://topheroes.store.kopglobal.com/api/v2/store/sale/biz/sign-in/gift/receive';
+                    const receiveUrl = 'https://topheroes.pay-store.rivergame.net/api/v2/store/sale/biz/sign-in/gift/receive';
                     const receiveResponse = await fetch(receiveUrl, {
                         method: 'POST',
                         headers: {
