@@ -1,7 +1,26 @@
 const fs = require('fs');
 
-// Cấu hình mã sự kiện điểm danh
-const ACTIVITY_IDS = [3419, 3430];
+// Cấu hình mã sự kiện điểm danh (Sẽ được lấy tự động)
+let ACTIVITY_IDS = [];
+
+// Hàm lấy danh sách sự kiện điểm danh đang active
+async function fetchActiveActivityIds() {
+    try {
+        const response = await fetch('https://topheroes.pay-store.rivergame.net/api/v2/store/sale/biz/list?site_id=1028526', {
+            headers: { 'accept': 'application/json' }
+        });
+        if (!response.ok) return [];
+        const json = await response.json();
+        if (json.code === 1 && json.data && json.data.list) {
+            // activity_type: 4 là "Sign-in", status: 2 là "In Progress", project_id: 1028637 là "Top Heroes"
+            const acts = json.data.list.filter(a => a.project_id === 1028637 && a.activity_type === 4 && a.status === 2);
+            return acts.map(a => a.biz_id);
+        }
+    } catch (e) {
+        console.error("Lỗi lấy danh sách sự kiện:", e.message);
+    }
+    return [];
+}
 
 // Hàm lấy danh sách UID từ file uids.txt
 function getUids() {
@@ -121,6 +140,14 @@ async function startJob() {
     }
 
     log(`Tìm thấy ${uids.length} UIDs để xử lý...`);
+    
+    log("Đang lấy danh sách sự kiện điểm danh mới nhất...");
+    ACTIVITY_IDS = await fetchActiveActivityIds();
+    if (ACTIVITY_IDS.length === 0) {
+        log("Không tìm thấy sự kiện điểm danh nào đang diễn ra.");
+        return;
+    }
+    log(`Tìm thấy ${ACTIVITY_IDS.length} sự kiện điểm danh (ID: ${ACTIVITY_IDS.join(', ')}).`);
     
     for (const uid of uids) {
         log(`\n--- Đang xử lý UID: ${uid} ---`);
