@@ -1,6 +1,9 @@
 const fs = require('fs');
 
-// Cấu hình mã sự kiện điểm danh (Sẽ được lấy tự động)
+// Cấu hình mã sự kiện điểm danh
+// Nếu API không tự động lấy được, bạn có thể điền ID sự kiện thủ công vào đây. Ví dụ: [1234, 5678]
+let MANUAL_ACTIVITY_IDS = [1113212, 3431]; 
+
 let ACTIVITY_IDS = [];
 
 // Hàm lấy danh sách sự kiện điểm danh đang active
@@ -9,7 +12,7 @@ async function fetchActiveActivityIds() {
         const response = await fetch('https://topheroes.pay-store.rivergame.net/api/v2/store/sale/biz/list?site_id=1028526', {
             headers: { 'accept': 'application/json' }
         });
-        if (!response.ok) return [];
+        if (!response.ok) return MANUAL_ACTIVITY_IDS;
         const json = await response.json();
         if (json.code === 1 && json.data && json.data.list) {
             // activity_type: 4 là "Sign-in", status: 2 là "In Progress", project_id: 1028637 là "Top Heroes"
@@ -19,8 +22,9 @@ async function fetchActiveActivityIds() {
     } catch (e) {
         console.error("Lỗi lấy danh sách sự kiện:", e.message);
     }
-    return [];
+    return MANUAL_ACTIVITY_IDS;
 }
+
 
 // Hàm lấy danh sách UID từ file uids.txt
 function getUids() {
