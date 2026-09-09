@@ -2,7 +2,7 @@ const fs = require('fs');
 
 // Cấu hình mã sự kiện điểm danh
 // Nếu API không tự động lấy được, bạn có thể điền ID sự kiện thủ công vào đây. Ví dụ: [1234, 5678]
-let MANUAL_ACTIVITY_IDS = [1113266, 1113212, 3431]; 
+let MANUAL_ACTIVITY_IDS = [1113388, 1113266, 1113212, 3431]; 
 
 let ACTIVITY_IDS = [];
 
